@@ -1,10 +1,11 @@
 'use client'
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import { logoutAction } from '@/utils/logoutAction'
 function Header() {
     const router = useRouter()
     const onLogout = () => {
-
+        logoutAction()
     }
     return (
         <header>
@@ -17,7 +18,7 @@ function Header() {
                 </div>
                 <button className='btn btn-link' onClick={onLogout}>
                     <span className='d-none d-sm-inline'> Logout </span>
-                    &nbsp;<i className="fa-solid fa-arrow-right-from-bracket"></i>
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 </button>
             </div>
         </header>

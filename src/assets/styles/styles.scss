@@ -19,6 +19,7 @@
 .movie_container {
     max-width: 1200px;
     padding-bottom: 120px;
+
     header {
         padding: 50px 0;
     }
@@ -40,15 +41,21 @@
 }
 
 @media (max-width: 768px) {
-    .movie_container{
+    .movie_container {
         padding: 0 16px;
         padding-bottom: 120px;
     }
+
     .btn-add-movie {
         height: 24px;
         width: 24px;
-        i{
+
+        i {
             font-size: 12px;
         }
+    }
+
+    .login_wrap {
+        width: 90%;
     }
 }

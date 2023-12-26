@@ -1,36 +1,19 @@
-'use client'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import Card from './Card'
-import axios from 'axios';
+import { moviesList } from '../types'
 
-function List() {
-
-    const token = localStorage.getItem("Token")
-    
-    const fetchMovies=async ()=>{
-        const response = await axios.get('https://movie-app-backend-j12g.onrender.com/api/movies/list?page=1',{
-            headers: { Authorization: `Bearer ${token}` }
-        })
-        if(response?.data?.movies !== null){
-            setMoviesData(response?.data?.movies)
-        }
-    }
-
-    useEffect(()=>{
-        if(token !== null){
-            fetchMovies()
-        }
-    },[])
-    
-    const [moviesData,setMoviesData]=useState([])
-
+function List({
+    movies
+}: {
+    movies: moviesList[]
+}) {
     return (
         <Fragment>
             <div className="row">
-                {
-                    moviesData.map((movies, index) => (
+                {(Array.isArray(movies) && movies.length > 0) &&
+                    movies.map((movie, index) => (
                         <div key={`movie_no_#` + index} className="col-lg-3 col-6">
-                            <Card movieData={movies} />
+                            <Card data={movie} />
                         </div>
                     ))
                 }

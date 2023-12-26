@@ -1,9 +1,12 @@
-import { Login } from '@/views'
+import { ProtectedRoute } from '@/components'
+import { MovieList } from '@/views'
 import React from 'react'
 
 function page() {
   return (
-    <Login />
+    <ProtectedRoute>
+      <MovieList />
+    </ProtectedRoute>
   )
 }
 

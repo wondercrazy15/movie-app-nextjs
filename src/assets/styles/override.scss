@@ -22,14 +22,16 @@ h2 {
     --bs-btn-color: #fff;
     --bs-btn-hover-color: #fff;
     --bs-btn-active-color: var(--primary-color);
+
 }
 
+// color: transparent;
 .btn-primary {
     --bs-btn-color: #fff;
     --bs-btn-bg: var(--primary-color);
     --bs-btn-border-color: var(--primary-color);
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--primary-color);
+    --bs-btn-hover-bg: transparent;
     --bs-btn-hover-border-color: var(--primary-color);
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
@@ -65,11 +67,6 @@ h2 {
         /* Firefox */
     }
 }
-.form-check-input[type=checkbox]{
-    background-color: var(--input-color);
-    border: none;
-}
-
 
 @media (max-width: 768px) {
     h1 {

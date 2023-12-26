@@ -1,21 +1,23 @@
-import { useRouter } from 'next/navigation';
 import React from 'react'
+import { moviesList } from '../types'
+import { useRouter } from 'next/navigation'
 
-function Card(props: any) {
-
-  const { movieData } = props
+function Card({
+  data
+}: {
+  data: moviesList
+}) {
   const router = useRouter()
 
-  const handleClick = (id: string) => {
-    router.push(`/movie/edit/${id}`)
+  const onEdit = () => {
+    router.push(`/movie/edit/${data._id}`)
   }
-
   return (
-    <div className="card" onClick={() => { handleClick(movieData?._id) }}>
-      <img src={movieData?.poster ? movieData?.poster : 'dummy.png' } className="card-img-top" alt="dummy" />
+    <div className="card" id={data._id} onClick={onEdit}>
+      <img src={data.poster} className="card-img-top" alt="dummy" />
       <div className="card-body">
-        <h4 className="card-title">{movieData?.title}</h4>
-        <h5 className='card-year'> {movieData?.publishingYear} </h5>
+        <h4 className="card-title">{data.title}</h4>
+        <h5 className='card-year'> {data.publishingYear} </h5>
       </div>
     </div>
   )
