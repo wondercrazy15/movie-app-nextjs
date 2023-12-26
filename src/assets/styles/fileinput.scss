@@ -1,0 +1,38 @@
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+
+    input[type=file] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 470px;
+        height: 500px;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    .overlay {
+        border-radius: 10px;
+        border: 2px dashed #FFF;
+        background: var(--input-color, #224957);
+        max-width: 470px;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .file-upload-wrapper {
+        overflow: hidden;
+        .overlay {
+            max-height: 380px;
+        }
+    }
+}

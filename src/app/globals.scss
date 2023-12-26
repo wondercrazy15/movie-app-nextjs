@@ -1,0 +1,47 @@
+@import "../assets/styles/styles.scss";
+
+:root {
+  --primary-color: #2BD17E;
+  --error-color: #EB5757;
+  --bg-color: #093545;
+  --input-color: #224957;
+  --card-color: #092C39;
+  --gray-color: #C3C8D4;
+  --font-color: #FFFFFF;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  height: auto;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  background-image: url("/bg.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+//scrollbar
+::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url("/bg-phone.png");
+  }
+}
