@@ -1,9 +1,3 @@
-@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css);
-@import "./override.scss";
-@import "./fileinput.scss";
-@import "./card.scss";
-
 .btn-add-movie {
     height: 28px;
     width: 28px;
@@ -17,8 +11,8 @@
 
 
 .movie_container {
-    max-width: 1200px;
-    padding-bottom: 120px;
+    max-width: 1200px !important;
+    padding-bottom: 120px !important;
 
     header {
         padding: 50px 0;
@@ -42,8 +36,8 @@
 
 @media (max-width: 768px) {
     .movie_container {
-        padding: 0 16px;
-        padding-bottom: 120px;
+        padding: 0 16px !important;
+        padding-bottom: 120px !important;
     }
 
     .btn-add-movie {
