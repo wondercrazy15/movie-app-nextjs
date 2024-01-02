@@ -18,7 +18,7 @@ function Header() {
                 </div>
                 <button className='btn btn-link' onClick={onLogout}>
                     <span className='d-none d-sm-inline'> Logout </span>
-                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                    &nbsp;<i className="fa-solid fa-arrow-right-from-bracket"></i>
                 </button>
             </div>
         </header>

@@ -4,21 +4,34 @@ import EmptyList from './components/EmptyList'
 import Movies from './Movies'
 import getMovieAction from './utils/getMovieAction'
 import { moviesList } from './types'
+import { useSearchParams } from 'next/navigation'
 
 function MovieList() {
     const [movies, setMovies] = useState<moviesList[]>([])
     const [hasMovies, setHasMovies] = useState(false)
     const [loading, setLoading] = useState(true)
+    const params = useSearchParams()
+
+    // useEffect(() => {
+    //     setLoading(true)
+    //     getMovie()
+    //     return () => {
+
+    //     }
+    // }, [])
+
     useEffect(() => {
         setLoading(true)
-        getMovie()
+        const page = params.get('page');
+        getMovie(parseInt(page || '1'))
         return () => {
 
         }
-    }, [])
+    }, [params])
 
-    const getMovie = async () => {
-        await getMovieAction().then((res) => {
+
+    const getMovie = async (page: number = 1) => {
+        await getMovieAction(page).then((res) => {
             if (res.status == 200 && res.data && Array.isArray(res.data.movies)) {
                 const resdata = res.data.movies
                 setMovies(resdata)
@@ -38,12 +51,11 @@ function MovieList() {
         <Fragment>
             {loading ?
                 <div className='d-flex justify-content-center align-items-center vh-100'>
-                    <div>
-                        <h2 className='text-center'>We are loading your movie list.</h2>
+                    <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
-                :
-                hasMovies ?
+                : hasMovies ?
                     <Movies data={movies} />
                     : <EmptyList />}
         </Fragment>
